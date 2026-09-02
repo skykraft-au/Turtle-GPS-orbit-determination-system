@@ -1,0 +1,2 @@
+fifo_gps_data.v,verilog,xil_defaultlib,../../../../GPS_V2.0.gen/sources_1/ip/fifo_gps_data/sim/fifo_gps_data.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -1,0 +1,5 @@
+vhdl xil_defaultlib  \
+"../../../../GPS_V2.0.gen/sources_1/ip/FIR_Filter/sim/FIR_Filter.vhd" \
+
+# Do not sort compile order
+nosort

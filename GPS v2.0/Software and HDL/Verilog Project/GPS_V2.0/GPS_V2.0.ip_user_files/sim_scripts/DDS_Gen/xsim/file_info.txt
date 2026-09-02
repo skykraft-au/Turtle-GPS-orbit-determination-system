@@ -1,0 +1,2 @@
+DDS_Gen.vhd,vhdl,xil_defaultlib,../../../../GPS_V2.0.gen/sources_1/ip/DDS_Gen/sim/DDS_Gen.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v
