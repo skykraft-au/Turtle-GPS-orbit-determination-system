@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ETXO-L33CL-100.000
+D TCXO Oscillators 100.000 MHz +3.3V LVDS TCXO +/-2.5 ppm -30 - +85C 3.2 x 2.5 mm RoHS
+K
+F https://ecsxtal.com/store/pdf/ETXO-L.pdf
+$ENDCMP
+#
+#End Doc Library
