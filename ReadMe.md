@@ -1,5 +1,5 @@
 # Overview
-The Turtle GPS is an open-source, cost-effective, low-power and low-weight solution to orbit determination. The device resolves the issues faced by standard tracking methods such as radar while democratising space by making tracking cooperative and community based. The device satellites CoCom regulations by being post-processed and non-continuous, instead, beaconing GPS data over LoRa packets in specified intervals.
+The Turtle GPS is an open-source, cost-effective, low-power and low-weight solution to orbit determination. The device resolves the issues faced by standard tracking methods such as radar while democratising space by making tracking cooperative and community based. The device satisfies CoCom regulations by being post-processed and non-continuous, instead, beaconing GPS data over LoRa packets in specified intervals.
 
 The device is highly configurable through the FPGA Verilog code.
 
