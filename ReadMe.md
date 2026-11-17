@@ -5,7 +5,31 @@ The device is highly configurable through the FPGA Verilog code; see the configu
 
 Further development on the device is needed; the community is welcome to contribute to this. Information on directions for this development can be found in the Todo section below.
 
-## Changelog for most recent version (Turtle GPS v2.1)
+[!WARNING] Turtle GPS v2.0 contains known hardware issues in the flash programming and power supply circuitry which prevent correct operation in the default configuration. These issues are corrected in Turtle GPS v2.1. See GPS v2.0/KNOWN_ISSUES.md for more information. 
+
+# Usage of the Device
+## QuickStart Guide for Testing
+Once the PCB is fully assembled, the HF MMCX line can be connected to a passive or active GPS antenna. If it is active, in the case of v2.1, the onboard bias tee can power it, otherwise an external bias tee is required. The Turtle GPS should be connected to a 3.3 V power supply, either a small solar panel, a benchtop power supply, or a Lithium-Ion battery. The output can either be connected to an antenna which transmits to a LoRa receiver or directly connected to the receiver with a coaxial cable and a 3 dB attenuator. The LoRa receiver could be setup with a module like the SX1278 RA-02, connected to a microcontroller configured to receive the data packets.
+
+If the Flash has not been programmed, the JTAG header should be connected to a computer over a digilent JTAG-HS3 programming cable or similar. Then, Vivado should be used to compile a bitstream in the relevant project found in this repository. A memory config file using QSPI should be created in Vivado, from this bitstream before being used to write the Flash memory over the JTAG, again with Vivado.
+
+Once programmed, upon being powered the Turtle GPS will begin receiving and transmitting packets of data, following a pseudo-random delay for the first cycle. This delay was implemented to prevent continuous transmission on a tumbling satellite. The packets received over LoRa should be processed with a computer as they are essentially just IQ data from the GPS signal, not processed position or time data.
+
+## Configuration of the Device
+By default, the packets transmitted over LoRa are 512 bits wide and include a unique, user-defined satellite ID Code, packet index, user-defined bits, and the actual data.
+| Number of Bits | Bit Locations | Purpose |
+| -------------- | ------------- | ------- |
+| 24 | \[511:488\] | Satellite ID Code |
+| 12 | \[487:476\] | Packet Index |
+| 28 | \[475:448\] | User-defined bits |
+| 448 | \[447:0\] | GPS IQ Data |
+
+The user-defined bits can be configured by changing the value of the respective register in the Verilog code. The configuration of the MAX2771 GNSS Receiver and the LoRa SX1276 can be changed by adjusting the values of their respective configuration registers in the MAX_Driver and LORA_Driver Verilog modules, respectively.
+
+The total transmission size, as well as the sample size and whether samples are continuous or not, can all be configured through the value of the GPS_Config register in the GPS_Top Verilog module. Comments are included in the code to assist users with this.
+
+# Changelog
+## Most Recent Version (Turtle GPS v2.1)
 - Fixes including 10 kOhm pull-up resistors on Flash Pins, lowered pull up resistance to 1 kOhm on mode pin pullup to prevent metastable behaviour on boot, boost converter swapped to MAX8575, done pin pulled up instead of down, and swapped the power supply diode to B130-13-F for higher current capability.
 - Swapped LDOs in the power supply for availability, and lower supply noise.
 - Made MMCX connectors side mounted instead of front mounted.
@@ -22,7 +46,7 @@ Further development on the device is needed; the community is welcome to contrib
 - Reworked trace length matching for the JTAG, and the Flash memory.
 - Updated version number and date.
 
-## Note regarding Turtle GPS v2.0
+## Note regarding the Turtle GPS v2.0
 The Turtle GPS v2.0 does not work by default, as there are issues regarding the flash and power supply components on the board; these issues are resolved in version 2.1.
 
 # Todo
@@ -32,19 +56,6 @@ The Turtle GPS v2.0 does not work by default, as there are issues regarding the 
 - Test in orbit
 - Set up a public website for uploading and processing of data
 - Add satellite ID code generator and logger to the website
-
-# Configuration of the Device
-By default, the packets transmitted over LoRa are 512 bits wide and include a unique, user-defined satellite ID Code, packet index, user-defined bits, and the actual data.
-| Number of Bits | Bit Locations | Purpose |
-| -------------- | ------------- | ------- |
-| 24 | \[512:489\] | Satellite ID Code |
-| 12 | \[488:477\] | Packet Index |
-| 28 | \[476:449\] | User-defined bits |
-| 448 | \[448:0\] | GPS IQ Data |
-
-The user-defined bits can be configured by changing the value of the respective register in the Verilog code. The configuration of the MAX2771 GNSS Receiver and the LoRa SX1276 can be changed by adjusting the values of their respective configuration registers in the MAX_Driver and LORA_Driver Verilog modules, respectively.
-
-The total transmission size, as well as the sample size and whether samples are continuous or not, can all be configured through the value of the GPS_Config register in the GPS_Top Verilog module. Comments are included in the code to assist users with this.
 
 # Licensing
 
