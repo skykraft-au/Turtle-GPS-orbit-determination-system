@@ -5,16 +5,28 @@ The device is highly configurable through the FPGA Verilog code; see the configu
 
 Further development on the device is needed; the community is welcome to contribute to this. Information on directions for this development can be found in the Todo section below.
 
+## Changelog for most recent version (Turtle GPS v2.1)
+- Fixes including 10 kOhm pull-up resistors on Flash Pins, lowered pull up resistance to 1 kOhm on mode pin pullup to prevent metastable behaviour on boot, boost converter swapped to MAX8575, done pin pulled up instead of down, and swapped the power supply diode to B130-13-F for higher current capability.
+- Swapped LDOs in the power supply for availability, and lower supply noise.
+- Made MMCX connectors side mounted instead of front mounted.
+- Swapped power header for the M80-8420245 side-mounted Harwin connector.
+- Added an L1 SAW Filter to the RF path around the MAX2771 digitiser.
+- Updated LoRa RF path to handle frequencies between 400 and 440 MHz.
+- Added a 3.3 V Bias Tee to the GNSS RF input path to allow for an active antenna to be directly connected.
+- Moved bulk capacitors to the front of the board allowing direct mounting of the PCB to a satellite chassis with a thin (~0.3 mm) thermally conductive layer.
+- Changed Flash to S25FL128LAGMFI010 due to part availability.
+- Changed LoRa TCXO to TX21-M010S-32.000-X-R due to part avilability.
+- Organised KiCAD Schematic into five distinct sections and added 3D models to components.
+- Swapped LoRa clock enable voltage divider for a single pull-up resistor.
+- Added voltage divider to the relay in the RF path to better match datasheet requirements.
+- Reworked trace length matching for the JTAG, and the Flash memory.
+- Updated version number and date.
+
 ## Note regarding Turtle GPS v2.0
-Note that the Turtle GPS v2.0 does not work by default, as there are issues regarding the flash and power supply components on the board; these issues are resolved in version 2.1. If you wish to use version 2.0, you will need to resolve these issues. The key issues and solutions are as follows:
-- There are missing pull-up resistors on pins 1, 3, and 7 of the Flash memory; these should be 10 kΩ.
-- The pull-up resistors on the M0, M1, and M2 pins on the underside of the FPGA are 10 kΩ, but they should be 1 kΩ to initiate the correct startup configuration.
-- A few issues exist in the lower half of the power supply, including incorrect placement of the boost converter, sensitive output of the first 3.3 V LDO, and insufficient current rating in both the diode and boost converter. To resolve this, I recommend bypassing this section by powering the board with 3.3 V through test point 3.
-- The done indicator pin from the FPGA should be a pull-up and not a pull-down.
+The Turtle GPS v2.0 does not work by default, as there are issues regarding the flash and power supply components on the board; these issues are resolved in version 2.1.
 
 # Todo
-- GPS v2.1: Resolve issues with v2.0, update FPGA clock to an LVCMOS TCXO, tune LoRa RF path to between 401 MHz and 403 MHz.
-- Update code to default the LoRa frequency to 401 MHz to 403 MHz and cascade the FIR to allow for a sharper cutoff to be attained with the limited FPGA resources.
+- Update code to default the LoRa frequency to 401 MHz to 403 MHz and cascade the FIR (or implement a CIC) to allow for a sharper cutoff to be attained with the limited FPGA resources.
 - Program LoRa receiving capabilities into the FPGA to allow for remote shutdown with a unique user-defined code.
 - Optimise size, weight, and performance of the device
 - Test in orbit
@@ -38,12 +50,17 @@ The total transmission size, as well as the sample size and whether samples are 
 
 This repository contains material under multiple licenses.
 
+The Turtle GPS was conceived of by Craig Benson and implemented by Dino Colling as part of work conducted for, and licenced by, Skykraft Pty Ltd.
+
+Copyright © Skykraft Pty Ltd. All rights are licensed as described below.
+
 ## Hardware
 
 The hardware design files are licensed under CERN-OHL-P v2.
 
 This includes:
 - GPS v2.0/KiCad PCB/
+- GPS v2.1/KiCad PCB/
 
 ## HDL and Software
 
@@ -51,6 +68,7 @@ The HDL and software source code are licensed under the MIT License.
 
 This includes:
 - GPS v2.0/Software and HDL/
+- GPS v2.1/Software and HDL/
 
 ## Documentation
 
@@ -59,5 +77,6 @@ Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 This includes:
 - GPS v2.0/BoM/
+- GPS v2.1/BoM/
 
 A copy of each license is available in the licenses/ directory.
