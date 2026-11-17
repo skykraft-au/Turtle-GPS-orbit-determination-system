@@ -1,0 +1,90 @@
+(footprint "GPS_Processor_Output"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 2 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "044a70c4-4b1b-4ec5-a84a-f52370ab39b3")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "GPS_Processor_Output"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3eae2a8b-2ae8-4be2-ac9b-f6722b53de9b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "15365400-72f8-4a7a-b5f1-85035c79bd91")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7b9a22c1-fc73-4e96-a3c1-4d16ee32b8c2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_rect
+		(start -3.5 -2)
+		(end 3.5 3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "e36e36fb-968f-4785-a7ae-c7a82e3b450c")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "297863d2-52fa-41bf-9702-c02fab47e352")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at 0 0)
+		(size 4 2.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15)
+		(thermal_bridge_angle 45)
+		(uuid "e2560575-2cb2-45d0-a6ea-64d5bf5242d5")
+	)
+	(embedded_fonts no)
+)

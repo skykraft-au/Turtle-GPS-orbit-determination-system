@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BC817-40-TP
+D Small Signal Bipolar Transistors
+K
+F https://www.mccsemi.com/pdf/Products/BC817-16~BC817-40(SOT-23).pdf
+$ENDCMP
+#
+#End Doc Library

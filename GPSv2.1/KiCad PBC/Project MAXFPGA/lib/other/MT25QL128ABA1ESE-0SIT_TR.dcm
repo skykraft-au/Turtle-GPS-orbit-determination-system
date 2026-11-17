@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MT25QL128ABA1ESE-0SIT_TR
+D IC FLASH 128MBIT 133MHZ 8SOIC
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/DKDS42/DSANUWW0045431.pdf
+$ENDCMP
+#
+#End Doc Library

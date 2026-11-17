@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP XC7S6-1CPGA196I
+D XILINX - XC7S6-1CPGA196I - FPGA, SPARTAN-7, 100 I/O, CSBGA-196
+K
+F https://www.xilinx.com/support/documentation/data_sheets/ds189-spartan-7-data-sheet.pdf
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MMCX-J-P-H-ST-SM1
+D Samtec 50 Straight Surface Mount MMCX Connector, jack, Solder Termination, 0  6GHz, Coaxial
+K
+F https://suddendocs.samtec.com/prints/mmcx-j-p-x-st-sm1-x-xx-mkt.pdf?_gl=1*k88id8*_gcl_aw*R0NMLjE3NDkxMTAwNDEuRUFJYUlRb2JDaE1Jc3BuZ3l1YlpqUU1WbGtCQkFoMjROQVlvRUFBWUFTQUFFZ0p6YVBEX0J3RQ..*_gcl_au*MTAyNjMxMDQ2MC4xNzUzMTY2Nzg5*_ga*NjU3MzY1MzA4LjE3Mzc1MjQwMTQ.
+$ENDCMP
+#
+#End Doc Library

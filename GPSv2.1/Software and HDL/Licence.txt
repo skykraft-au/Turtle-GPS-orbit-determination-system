@@ -1,0 +1,5 @@
+Copyright (C) 2026 Dino Colling and Skykraft Pty Ltd
+
+Based on a concept by Craig Benson.
+
+Licensed under MIT Licence.
