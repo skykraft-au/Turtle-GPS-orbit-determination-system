@@ -1,1 +1,9 @@
 .DS_Store
+*.jou
+*.log
+*.str
+*.cache/
+*.runs/
+*.sim/
+*.hw/
+*.ip_user_files/
